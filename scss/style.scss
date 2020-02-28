@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', SegoeUI, 'Microsoft JhengHei', 微軟正黑體, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.navbar {
+    width: 100%;
+    margin: auto;
+    background-color: #014260;
+    position: relative;
+
+    .navbar-top {
+        a {
+            color: white;
+        }
+
+        .sign-in {
+            span {
+                color: white;
+            }
+        }
+
+        .facebook {
+            a {
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    fill: white;
+                }
+            }
+        }
+
+        .instagram {
+            a {
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    fill: white;
+                }
+            }
+        }
+    }
+
+    .navbar-bot {
+        a {
+            color: white;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+
+            li {
+                display: inline-block;
+            }
+        }
+
+
+        .logo {
+                display: flex;
+                justify-content: center;
+        }
+    }
+}
+.banner{
+    img{
+        width: 100%;
+    }
+}
