@@ -79,4 +79,24 @@ li {
 .banner img {
   width: 100%;
 }
+
+.allfoods .allfoods-tabs .allfood-contents .allfood-content {
+  display: none;
+}
+
+.allfoods .allfoods-tabs .allfood-contents .allfood-content .card {
+  display: none;
+}
+
+.allfoods .allfoods-tabs .allfood-contents .allfood-content.active {
+  display: block;
+}
+
+.allfoods .allfoods-tabs .allfood-contents .allfood-content.active .card {
+  display: block;
+}
+
+.news {
+  background-color: #60A9F7;
+}
 /*# sourceMappingURL=style.css.map */

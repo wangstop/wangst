@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -20,6 +21,7 @@ ul {
 li {
     list-style: none;
 }
+
 
 .navbar {
     width: 100%;
@@ -75,13 +77,42 @@ li {
 
 
         .logo {
-                display: flex;
-                justify-content: center;
+            display: flex;
+            justify-content: center;
         }
     }
 }
-.banner{
-    img{
+
+.banner {
+    img {
         width: 100%;
     }
 }
+
+.popular-food{
+}
+
+.allfoods{
+    .allfoods-tabs{
+        .allfood-contents{
+           .allfood-content{
+               display: none;
+               .card{
+                display: none;
+                
+               }
+               &.active{
+                display: block;
+                .card{
+                    display: block;
+                }
+               }
+           } 
+        }
+    }
+}
+
+.news{
+    background-color: #60A9F7;
+}
+
