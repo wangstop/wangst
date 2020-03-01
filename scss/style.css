@@ -8,10 +8,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', SegoeUI, 'Microsoft JhengHei', 微軟正黑體, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: url("https://www.jhujian.com.tw//images/texture/bg.jpg");
 }
 
 a {
   text-decoration: none;
+  color: white;
 }
 
 ul {
@@ -80,6 +82,14 @@ li {
   width: 100%;
 }
 
+.allfoods a {
+  color: black;
+}
+
+.allfoods img {
+  width: 100%;
+}
+
 .allfoods .allfoods-tabs .allfood-contents .allfood-content {
   display: none;
 }
@@ -96,7 +106,51 @@ li {
   display: block;
 }
 
-.news {
-  background-color: #60A9F7;
+.allfoods .food-link .container .row .col-sm .food-link-btn {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+
+.branchs .branch1 {
+  border-right: 5px double black;
+}
+
+.branchs .branch1 .branch1-left .branch1-left-bg {
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  background: url("https://www.jhujian.com.tw/images/roundBg.png") 50% no-repeat;
+}
+
+.branchs .branch1 .branch1-right a .branch1-place img {
+  width: 30%;
+}
+
+.branchs .branch2 .branch2-right a .branch2-place img {
+  width: 30%;
+}
+
+.branchs .branch2 .branch2-left .branch2-left-bg {
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  background: url("https://www.jhujian.com.tw/images/roundBg.png") 50% no-repeat;
+}
+
+.deliver-item .deliver-tabs .deliver-contents {
+  display: none;
+}
+
+.deliver-item .deliver-tabs .deliver-contents.active {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */
