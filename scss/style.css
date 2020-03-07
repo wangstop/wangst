@@ -106,12 +106,6 @@ li {
   display: block;
 }
 
-.allfoods .food-link .container .row .col-sm .food-link-btn {
-  width: 100px;
-  height: 100px;
-  background-color: black;
-}
-
 .branchs .branch1 {
   border-right: 5px double black;
 }
@@ -146,11 +140,11 @@ li {
   background: url("https://www.jhujian.com.tw/images/roundBg.png") 50% no-repeat;
 }
 
-.deliver-item .deliver-tabs .deliver-contents {
+.deliver-item .deliver-items .deliver-item-contents .deliver-item-content {
   display: none;
 }
 
-.deliver-item .deliver-tabs .deliver-contents.active {
+.deliver-item .deliver-items .deliver-item-contents .deliver-item-content.active2 {
   display: block;
 }
 /*# sourceMappingURL=style.css.map */

@@ -91,10 +91,10 @@ li {
     }
 }
 
-.popular-food{
-}
 
 .allfoods{
+
+
     a{
         color: black;
     }
@@ -121,26 +121,8 @@ li {
     }
 }
 
-.news{
-}
 
-.allfoods{
-    .food-link{
-        .container{
-            .row{
-                .col-sm{
-                    .food-link-btn{
-                      width:100px;
-                      height:100px;
-                      background-color: black;
-                    }
 
-                }
-            }
-
-        }
-    }
-}
 
 .branchs{
     .branch1{
@@ -197,13 +179,16 @@ li {
 
 }
 .deliver-item{
-    .deliver-tabs{
-        .deliver-contents{
-            display: none;
-            &.active{
-                display: block;
+    .deliver-items{
+        .deliver-item-contents {
+            .deliver-item-content{
+                display: none;
+                &.active2{
+                    display: block;
+                }
             }
         }
+
     }
 
 }
