@@ -1133,7 +1133,7 @@
                     <div class="deliver-items">
                         <div class="container my-5">
                             <div class="deliver-items-title mb-5 text-center">
-                                <h1>內用菜單</h1>
+                                <h1>宅配商品</h1>
                             </div>
                             <div class="row">
                                 <div class="col-sm">
@@ -1156,41 +1156,9 @@
                                         <div class="deliver-item-contents ">
                                             <div class="deliver-item-content active2 ">
                                                 <div class="container">
-                                                    <div class="row deliver-item-fishs d-flex">
-
-                                                        <div class="col-sm">
-
-                                                            <div class="card">
-                                                                <img src="..." class="card-img-top" alt="...">
-                                                                <div class="card-body">
-                                                                    <h5 class="card-title">Card title</h5>
-                                                                    <p class="card-text">Some quick example text to
-                                                                        build on the card title and make up the bulk of
-                                                                        the card's content.</p>
-                                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-sm">
-
-                                                            <div class="card">
-                                                                <img src="..." class="card-img-top" alt="...">
-                                                                <div class="card-body">
-                                                                    <h5 class="card-title">Card title</h5>
-                                                                    <p class="card-text">Some quick example text to
-                                                                        build on the card title and make up the bulk of
-                                                                        the card's content.</p>
-                                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
+                                                    <div class="row deliver-head-meat d-flex">
 
                                                     </div>
-
-
                                                 </div>
                                             </div>
 
@@ -1199,7 +1167,7 @@
 
                                             <div class="deliver-item-content">
                                                 <div class="container">
-                                                    <div class="row deliver-item-vegetable d-flex">
+                                                    <div class="row deliver-head d-flex">
 
 
 
@@ -1208,7 +1176,7 @@
                                             </div>
                                             <div class="deliver-item-content">
                                                 <div class="container">
-                                                    <div class="row deliver-item-rice d-flex">
+                                                    <div class="row deliver-freezing d-flex">
 
 
                                                     </div>
@@ -1216,22 +1184,14 @@
                                             </div>
                                             <div class="deliver-item-content">
                                                 <div class="container">
-                                                    <div class="row deliver-item-just-item d-flex">
+                                                    <div class="row deliver-meat  d-flex">
 
 
                                                     </div>
                                                 </div>
 
                                             </div>
-                                            <div class="deliver-item-content">
-                                                <div class="container">
-                                                    <div class="row deliver-item-drink d-flex">
 
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
                                         </div>
                                     </div>
 
@@ -1241,6 +1201,27 @@
                         </div>
                     </div>
 
+                </div>
+            </section>
+
+            <section>
+                <div class="news">
+                    <div class="container my-5">
+                        <div class="news-title  mb-5 text-center">
+                            <h1>媒體報導</h1>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm">
+                            One of three columns
+                          </div>
+                          <div class="col-sm">
+                            One of three columns
+                          </div>
+                          <div class="col-sm">
+                            One of three columns
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </section>
         </main>
@@ -1479,6 +1460,163 @@
             let num = $(this).index();
             $($('.allfood-content')[num]).addClass('active');
 
+        })
+
+        // 宅配商品
+        // 沙鍋魚頭+魚肉組合
+        let headmeats = [{
+            img: './img/宅配商品/沙鍋魚頭+魚肉組合.png',
+            title: '特大',
+            Description: '沙鍋菜2包+特大鰱魚頭半面+鰱魚肉2塊',
+            price: '$860',
+        },
+        {
+            img: './img/宅配商品/沙鍋魚頭+魚肉組合.png',
+            title: '大',
+            Description: '沙鍋菜1包+大鰱魚頭半面+鰱魚肉1塊',
+            price: '$600',
+
+        },
+        {
+            img: './img/宅配商品/沙鍋魚頭+魚肉組合.png',
+            title: '中',
+            Description: '沙鍋菜1包+中鰱魚半面+鰱魚肉1塊',
+            price: '$570',
+
+        },
+        ]
+        let headmeat = document.querySelector('.deliver-head-meat')
+        headmeats.forEach(function (data) {
+            headmeat.innerHTML += `
+            <div class="col-4">
+                <div class="card">
+                    <img src="${data.img}" class="card-img-top" alt="${data.Description}">
+                    <div class="card-body">
+                        <h5 class="card-title">${data.title}</h5>
+                        <p class="card-text">
+                            ${data.Description}
+                            
+                        <div class="card-text1">
+                            ${data.price}
+                        </div>
+                        </p>
+                        <a href="#" class="btn btn-primary">立即購買</a>
+                    </div>
+                </div>
+                </div>
+            `
+        })
+
+        // 沙鍋魚頭組合
+        let heads = [{
+            img: './img/宅配商品/沙鍋魚頭組合.png',
+            title: '大',
+            Description: '沙鍋菜1包+大鰱魚頭半面',
+            price: '$530',
+        },
+        {
+            img: './img/宅配商品/沙鍋魚頭組合.png',
+            title: '中',
+            Description: '沙鍋菜1包+中鰱魚頭半面',
+            price: '$500',
+
+        },
+        {
+            img: './img/宅配商品/沙鍋魚頭組合.png',
+            title: '小',
+            Description: '沙鍋菜1包+小鰱魚頭半面',
+            price: '$470',
+
+        },
+        ]
+        let head = document.querySelector('.deliver-head')
+        heads.forEach(function (data) {
+            head.innerHTML += `
+            <div class="col-4">
+                <div class="card">
+                    <img src="${data.img}" class="card-img-top" alt="${data.Description}">
+                    <div class="card-body">
+                        <h5 class="card-title">${data.title}</h5>
+                        <p class="card-text">
+                            ${data.Description}
+                            
+                        <div class="card-text1">
+                            ${data.price}
+                        </div>
+                        </p>
+                        <a href="#" class="btn btn-primary">立即購買</a>
+                    </div>
+                </div>
+                </div>
+            `
+        })
+
+        // 沙鍋菜冷凍包
+        let freezing = [{
+            img: './img/宅配商品/沙鍋菜冷凍包.png',
+            title: '單點品項',
+            Description: '每包2100公克±10公克，約三人份',
+            price: '$250',
+        },
+        ]
+
+        let freez = document.querySelector('.deliver-freezing')
+        freezing.forEach(function (data) {
+            freez.innerHTML += `
+            <div class="col-4">
+                <div class="card">
+                    <img src="${data.img}" class="card-img-top" alt="${data.Description}">
+                    <div class="card-body">
+                        <h5 class="card-title">${data.title}</h5>
+                        <p class="card-text">
+                            ${data.Description}
+                            
+                        <div class="card-text1">
+                            ${data.price}
+                        </div>
+                        </p>
+                        <a href="#" class="btn btn-primary">立即購買</a>
+                    </div>
+                </div>
+                </div>
+            `
+        })
+
+
+        let meats = [{
+            img: './img/宅配商品/沙鍋魚肉組合.png',
+            title: '大',
+            Description: '沙鍋菜1包+鰱魚肉2塊',
+            price: '$390',
+        },
+        {
+            img: './img/宅配商品/沙鍋魚肉組合.png',
+            title: '中',
+            Description: '沙鍋菜1包+鰱魚肉1塊',
+            price: '$320',
+        },
+        ]
+
+        let meat = document.querySelector('.deliver-meat')
+        meats.forEach(function (data) {
+            meat.innerHTML += `
+            <div class="col-4">
+                <div class="card">
+                    <img src="${data.img}" class="card-img-top" alt="${data.Description}">
+                    <div class="card-body">
+                        <h5 class="card-title">${data.title}</h5>
+                        <p class="card-text">
+                            ${data.Description}
+                            
+                        <div class="card-text1">
+                            ${data.price}
+                        </div>
+                        </p>
+                        <a href="#" class="btn btn-primary">立即購買</a>
+                    </div>
+                </div>
+                </div>
+            `
         })
 
 

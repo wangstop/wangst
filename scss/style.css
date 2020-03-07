@@ -140,6 +140,10 @@ li {
   background: url("https://www.jhujian.com.tw/images/roundBg.png") 50% no-repeat;
 }
 
+.deliver-item .deliver-items .deliver-item-contents img {
+  width: 100%;
+}
+
 .deliver-item .deliver-items .deliver-item-contents .deliver-item-content {
   display: none;
 }

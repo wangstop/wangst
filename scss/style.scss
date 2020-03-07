@@ -181,6 +181,9 @@ li {
 .deliver-item{
     .deliver-items{
         .deliver-item-contents {
+            img{
+                width: 100%;
+            }
             .deliver-item-content{
                 display: none;
                 &.active2{
