@@ -1,0 +1,154 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', SegoeUI, 'Microsoft JhengHei', 微軟正黑體, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: url("https://www.jhujian.com.tw//images/texture/bg.jpg");
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.navbar {
+  width: 100%;
+  margin: auto;
+  background-color: #014260;
+  position: relative;
+}
+
+.navbar .navbar-top a {
+  color: white;
+}
+
+.navbar .navbar-top .sign-in span {
+  color: white;
+}
+
+.navbar .navbar-top .facebook a svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+}
+
+.navbar .navbar-top .instagram a svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+}
+
+.navbar .navbar-bot a {
+  color: white;
+}
+
+.navbar .navbar-bot ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar .navbar-bot ul li {
+  display: inline-block;
+}
+
+.navbar .navbar-bot .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.banner img {
+  width: 100%;
+}
+
+.allfoods a {
+  color: black;
+}
+
+.allfoods img {
+  width: 100%;
+}
+
+.allfoods .allfoods-tabs .allfood-contents .allfood-content {
+  display: none;
+}
+
+.allfoods .allfoods-tabs .allfood-contents .allfood-content .card {
+  display: none;
+}
+
+.allfoods .allfoods-tabs .allfood-contents .allfood-content.active {
+  display: block;
+}
+
+.allfoods .allfoods-tabs .allfood-contents .allfood-content.active .card {
+  display: block;
+}
+
+.branchs .branch1 {
+  border-right: 5px double black;
+}
+
+.branchs .branch1 .branch1-left .branch1-left-bg {
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  background: url("https://www.jhujian.com.tw/images/roundBg.png") 50% no-repeat;
+}
+
+.branchs .branch1 .branch1-right a .branch1-place img {
+  width: 30%;
+}
+
+.branchs .branch2 .branch2-right a .branch2-place img {
+  width: 30%;
+}
+
+.branchs .branch2 .branch2-left .branch2-left-bg {
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  background: url("https://www.jhujian.com.tw/images/roundBg.png") 50% no-repeat;
+}
+
+.deliver-item .deliver-items .deliver-item-contents img {
+  width: 100%;
+}
+
+.deliver-item .deliver-items .deliver-item-contents .deliver-item-content {
+  display: none;
+}
+
+.deliver-item .deliver-items .deliver-item-contents .deliver-item-content.active2 {
+  display: block;
+}
+/*# sourceMappingURL=form.css.map */

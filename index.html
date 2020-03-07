@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    <link rel="stylesheet" href="./css/newsswipper.css">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -1211,15 +1214,66 @@
                             <h1>媒體報導</h1>
                         </div>
                         <div class="row">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                  <div class="swiper-slide">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/G8CEWO7ctyk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                  </div>
+                                  <div class="swiper-slide">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/xrBjukEa6gE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                  </div>
+                                  <div class="swiper-slide">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/jY8nRkRUpik" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                  </div>
+                                  <div class="swiper-slide">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/oQY-wazHSpE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                  </div>
+                                  <div class="swiper-slide">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5WLs6vfo6UQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                  </div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination"></div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                              </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="contact">
+                    <div class="container  my-5">
+                        <div class="contact-title mb-5 text-center">
+                            <h1>聯絡我們</h1>
+                        </div>
+                        <div class="row ">
                           <div class="col-sm">
-                            One of three columns
+                            <div class="contact-us ">
+                                                         <form>
+                                <div class="form-group">
+                                  <label for="name">姓名:</label>
+                                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="請輸入姓名" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Email:</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="請輸入Email" required>
+                                  </div>
+
+                                <div class="form-group">
+                                  <label for="exampleFormControlTextarea1">message:</label>
+                                  <textarea class="form-control" placeholder="請輸入訊息" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Submit</button>
+
+                              </form>
+                            </div>
+   
                           </div>
-                          <div class="col-sm">
-                            One of three columns
-                          </div>
-                          <div class="col-sm">
-                            One of three columns
-                          </div>
+
                         </div>
                       </div>
                 </div>
@@ -1627,6 +1681,23 @@
             $($('.deliver-item-content')[num]).addClass('active2');
 
         })
+
+
+        var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 3,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
     </script>
 
 
