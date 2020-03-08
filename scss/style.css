@@ -52,6 +52,10 @@ li {
   fill: white;
 }
 
+.navbar .navbar-bot {
+  margin: 20px 0;
+}
+
 .navbar .navbar-bot a {
   color: white;
 }
@@ -150,5 +154,30 @@ li {
 
 .deliver-item .deliver-items .deliver-item-contents .deliver-item-content.active2 {
   display: block;
+}
+
+.footer {
+  background-color: #014260;
+  color: white;
+}
+
+.footer .social .footer-fb a svg {
+  fill: white;
+  width: 16px;
+  height: 16px;
+}
+
+.footer .social .footer-IG a svg {
+  fill: white;
+  width: 16px;
+  height: 16px;
+}
+
+.footer .footer-right ul li {
+  margin: 20px 30px;
+}
+
+.footer .footer-right ul li a {
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
