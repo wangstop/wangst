@@ -25,16 +25,17 @@ Route::get('/products','FrontController@proucts');
 
 
 // 購物首頁
-Route::get('/product_detail','FrontController@product_detail');
+Route::get('/product_detail/{product_id}','FrontController@product_detail');
 
 
 // 加入購物車
-Route::get('/add_cart/{product_id}','FrontController@add_cart');
+Route::post('/add_cart/{product_id}','FrontController@add_cart');
 
 // 總覽
-Route::get('/cart_total','FrontController@cart_total');
+Route::get('/cart','FrontController@cart_total');
 
-Route::get('/front/cart','FrontController@cart_total');
+
+// Route::get('/front/cart','FrontController@cart_total');
 
 
 Route::get('/front/news_inner/{id}','FrontController@news_inner');

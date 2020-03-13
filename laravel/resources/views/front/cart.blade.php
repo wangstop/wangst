@@ -7,7 +7,7 @@
 <style>
     .Cart {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 100px auto;
   }
 
   .Cart__header {
@@ -125,7 +125,6 @@
     <div class="container">
 
         <div class="media-container-row ">
-
             <div class="Cart">
 
                 <div class="Cart__header">
@@ -137,16 +136,17 @@
                 </div>
 
                 @foreach ($items as $item)
-
                <div class="Cart__product">
-                  <div class="Cart__productGrid Cart__productImg">{{$item->img}}</div>
+               <div class="Cart__productGrid Cart__productImg"></div>
                   <div class="Cart__productGrid Cart__productTitle">
-                    {{$item->title}}
+                    {{$item->name}}
                   </div>
-                  <div class="Cart__productGrid Cart__productPrice">{{$item->content}}</div>
-                  <div class="Cart__productGrid Cart__productTotal">{{$item->price}}</div>
+                  <div class="Cart__productGrid Cart__productPrice"> ${{$item->price}}</div>
+                  <div class="Cart__productGrid Cart__productQuantity">{{$item->quantity}}</div>
+                  <div class="Cart__productGrid Cart__productTotal">{{$item->price * $item->quantity}}</div>
                   <div class="Cart__productGrid Cart__productDel">&times;</div>
                 </div>
+
                 @endforeach
 
 

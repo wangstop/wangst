@@ -71,11 +71,15 @@ class FrontController extends Controller
         return view('front/product',compact('products'));
     }
 
-    public function product_detail(){
 
-        // $products = DB::table('products')->orderBy('sort','desc')->get();
 
-        return view('front/product_detail');
+
+
+    public function product_detail($product_id){
+
+        $Product = Products::find($product_id);
+
+        return view('front/product_detail',compact('Product'));
     }
 
 
@@ -99,7 +103,7 @@ class FrontController extends Controller
             'attributes' => array(),
             'associatedModel' => $Product
         ));
-
+        return redirect('cart');
     }
 
     public function cart_total(){
@@ -111,7 +115,5 @@ class FrontController extends Controller
         return view('/front/cart',compact('items'));
 
     }
-
-
 
 }

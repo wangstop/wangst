@@ -118,7 +118,7 @@ li{
 
                     <div class="product-title">
                         <div class="product-title-9T">
-                            <h1>小米9T</h1>
+                            <h1>{{$Product->title}}</h1>
                         </div>
                         <div class="product-title-inf">
                             <span>6GB+128GB, 火焰紅</span>
@@ -192,8 +192,8 @@ li{
                     </div>
 
 
-                    <form action="" method="post">
-
+                    <form action="/add_cart/{{$Product->id}}" method="post">
+                        @csrf
                     <div class="product-number">
                         <div class="product-number-title">
                             <h3>數量</h3>
@@ -221,7 +221,7 @@ li{
                             <li class=" d-flex justify-content-between">
                                 <span>總計</span>
                                 <div class="product-inner-price">
-                                    <span>8,999</span>
+                                    <span>{{$Product->price}}</span>
                                 </div>
                             </li>
                         </ul>
@@ -233,7 +233,7 @@ li{
                         </div>
                         <input type="text" name="capacity" id="capacity" hidden >
                         <input type="text" name="color" id="color" value="紅" hidden>
-                        <button class="btn-style">立即購買</button>
+                        <button  class="btn-style">立即購買</button>
                     </div>
 
                     </form>
