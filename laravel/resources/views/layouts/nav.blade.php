@@ -70,6 +70,15 @@
                         最新消息
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="/front/cart">
+                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
+                        cart
+                    </a>
+                </li>
+
+
                 <li class="nav-item">
                     <a class="nav-link link text-white display-4" href="/proucts_Types
                     ">

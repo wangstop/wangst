@@ -79,11 +79,10 @@ class FrontController extends Controller
     }
 
 
-    public function add_cart(){
+    public function add_cart($product_id){
         // 產品id
-        $product_id=2;
         $Product = Products::find($product_id); // assuming you have a Product model with id, name, description & price
-        $rowId = 456; // generate a unique() row ID
+        $rowId = $product_id; // generate a unique() row ID
 
         // 每一台購物車的id
         $userID = Auth::user()->id; // the user ID to bind the cart contents
@@ -109,7 +108,7 @@ class FrontController extends Controller
         $items = \Cart::session($userID)->getContent();
         // dd($items);
 
-        return view('/front/cart')
+        return view('/front/cart',compact('items'));
 
     }
 

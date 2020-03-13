@@ -135,27 +135,21 @@
                   <div class="Cart__headerGrid">小計</div>
                   <div class="Cart__headerGrid">刪除</div>
                 </div>
-                <div class="Cart__product">
-                  <div class="Cart__productGrid Cart__productImg"></div>
+
+                @foreach ($items as $item)
+
+               <div class="Cart__product">
+                  <div class="Cart__productGrid Cart__productImg">{{$item->img}}</div>
                   <div class="Cart__productGrid Cart__productTitle">
-                    DELL 戴爾 U3417W 34型 21:9 WQHD IPS曲面液晶螢幕《原廠三年保固》
+                    {{$item->title}}
                   </div>
-                  <div class="Cart__productGrid Cart__productPrice">$32,500</div>
-                  <div class="Cart__productGrid Cart__productQuantity">2</div>
-                  <div class="Cart__productGrid Cart__productTotal">$65,000</div>
+                  <div class="Cart__productGrid Cart__productPrice">{{$item->content}}</div>
+                  <div class="Cart__productGrid Cart__productTotal">{{$item->price}}</div>
                   <div class="Cart__productGrid Cart__productDel">&times;</div>
                 </div>
-                <div class="Cart__product">
-                  <div class="Cart__productGrid Cart__productImg"></div>
-                  <div class="Cart__productGrid Cart__productTitle">
-                    【日本原裝 AS 快眠枕】空運 日本 樂天寢具纇 10周銷售第一 枕邊人 睡眠
-                    安眠 舒眠 人體工學 枕頭 【水貨碼頭】
-                  </div>
-                  <div class="Cart__productGrid Cart__productPrice">$2,680</div>
-                  <div class="Cart__productGrid Cart__productQuantity">1</div>
-                  <div class="Cart__productGrid Cart__productTotal">$2,680</div>
-                  <div class="Cart__productGrid Cart__productDel">&times;</div>
-                </div>
+                @endforeach
+
+
               </div>
 
         </div>

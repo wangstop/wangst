@@ -29,11 +29,12 @@ Route::get('/product_detail','FrontController@product_detail');
 
 
 // 加入購物車
-Route::post('/add_cart','FrontController@add_cart');
+Route::get('/add_cart/{product_id}','FrontController@add_cart');
 
 // 總覽
 Route::get('/cart_total','FrontController@cart_total');
 
+Route::get('/front/cart','FrontController@cart_total');
 
 
 Route::get('/front/news_inner/{id}','FrontController@news_inner');
