@@ -92,6 +92,9 @@ li{
     border-color: #ff6700;
     transition: opacity,border .2s linear;
 }
+.product-number-title a{
+    font-size: 25px;
+}
 
 </style>
 
@@ -139,12 +142,12 @@ li{
                         <div class="row">
 
                             <div class="col-4">
-                                <div class="product-capacity-inner-btn active">
+                                <div class="product-capacity-inner-btn active" data-capacity="6GB+128GB">
                                     6GB+128GB
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div class="product-capacity-inner-btn ">
+                                <div class="product-capacity-inner-btn "data-capacity="8GB+256GB">
                                     8GB+256GB
                                 </div>
                             </div>
@@ -195,7 +198,7 @@ li{
                         <div class="product-number-title">
                             <h3>數量</h3>
                             <a id="minus" href="#">-</a>
-                            <input type="text" id="qty" value="1">
+                            <input type="text" id="qty" value="1" >
                             <a id="plus" href="#">+</a>
                         </div>
 
@@ -228,7 +231,7 @@ li{
                         <div class="product-cart-notify">
                             <span>想要購買此商品? 請點選"到貨通知我"</span>
                         </div>
-                        <input type="text" name="capacity" id="capacity" hidden>
+                        <input type="text" name="capacity" id="capacity" hidden >
                         <input type="text" name="color" id="color" value="紅" hidden>
                         <button class="btn-style">立即購買</button>
                     </div>
@@ -252,6 +255,13 @@ li{
     $('.product-capacity-inner-btn').click(function(){
         $("*").removeClass('active');
         $(this).addClass('active');
+
+        var capacity=$(this).attr("data-capacity");
+        $('#capacity').val(capacity);
+
+
+
+
     })
 
 
@@ -267,7 +277,8 @@ li{
         var color=$(this).attr("data-color");
 
         // change input value
-        $("#capacity").val(color);
+        $("#color").val(color);
+
 
 
     })

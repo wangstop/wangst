@@ -11,6 +11,7 @@ use App\Products;
 
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FrontController extends Controller
 {
@@ -78,29 +79,40 @@ class FrontController extends Controller
     }
 
 
-    // public function add_cart($product_id){
+    public function add_cart(){
+        // 產品id
+        $product_id=2;
+        $Product = Products::find($product_id); // assuming you have a Product model with id, name, description & price
+        $rowId = 456; // generate a unique() row ID
 
-    //     $Product = Products::find($product_id); // assuming you have a Product model with id, name, description & price
-    //     $rowId = 456; // generate a unique() row ID
-    //     $userID = Auth::()->id; // the user ID to bind the cart contents
+        // 每一台購物車的id
+        $userID = Auth::user()->id; // the user ID to bind the cart contents
+
+        // dd( $userID);
 
 
-    //     // add the product to cart
-    //     \Cart::session($userID)->add(array(
-    //         'id' => $rowId,
-    //         'name' => $Product->name,
-    //         'price' => $Product->price,
-    //         'quantity' => 4,
-    //         'attributes' => array(),
-    //         'associatedModel' => $Product
-    //     ));
+        // add the product to cart
+        \Cart::session($userID)->add(array(
+            'id' => $rowId,
+            'name' => $Product->title,
+            'price' => $Product->price,
+            'quantity' => 4,
+            'attributes' => array(),
+            'associatedModel' => $Product
+        ));
 
-    // }
+    }
 
-    // public function cart_total(){
+    public function cart_total(){
 
-    //     $items = \Cart::session($userID)->getContent();
+        $userID = Auth::user()->id;
+        $items = \Cart::session($userID)->getContent();
+        // dd($items);
 
-    // }
+        return view('/front/cart')
+
+    }
+
+
 
 }

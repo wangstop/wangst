@@ -23,12 +23,12 @@
   <link rel="stylesheet" href="{{asset('assets/mobirise/css/mbr-additional.css')}}" type="text/css">
 
 
-<style>
+{{-- <style>
     .padding-top{
         padding-top: 200px;
     }
 
-</style>
+</style> --}}
 
 @yield('css')
 

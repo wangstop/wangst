@@ -131,6 +131,7 @@ class ProductTypeController extends Controller
         //回傳 資料庫儲存用的路徑格式
         return '/upload/' . $dir . '/' . $filename;
     }
+    
     public function ajax(Request $request){
 
         $nameid=$request->nameid;
