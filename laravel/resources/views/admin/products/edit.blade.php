@@ -82,69 +82,69 @@
 
 <script>
 
-            // 表單認證
-            $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        //     // 表單認證
+        //     $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
 
 
-        $('.card-img .btn-danger').click(function(){
+        // $('.card-img .btn-danger').click(function(){
 
-            // 點擊的id
-            var nameid=this.getAttribute('datanewingid');
-
-
-            $.ajax({
-
-                // 送出的路徑
-                  url: "/admin/news/ajax",
-                //   方法 預設get
-                  method: 'post',
-
-                //  點擊抓到的id
-                  data: {
-                    nameid:nameid,
-                  },
-
-                  success: function(result){
-                    $(`.col-2[datanewingid=${nameid}]`).remove();
-
-                    // console.log(result);
-
-                  }});
-
-            });
+        //     // 點擊的id
+        //     var nameid=this.getAttribute('datanewingid');
 
 
-            function ajax_post_sort(element,img_id){
+        //     $.ajax({
 
-                // console.log(element.value);
-                var sort = element.value;
+        //         // 送出的路徑
+        //           url: "/admin/news/ajax",
+        //         //   方法 預設get
+        //           method: 'post',
 
-                $.ajax({
+        //         //  點擊抓到的id
+        //           data: {
+        //             nameid:nameid,
+        //           },
 
-                    // 送出的路徑
-                    url: "/home/ajax_post_sort",
-                    //   方法 預設get
-                    method: 'post',
+        //           success: function(result){
+        //             $(`.col-2[datanewingid=${nameid}]`).remove();
 
-                    //  點擊抓到的id
-                    data: {
-                        id:img_id,
-                        sort:sort,
-                    },
+        //             // console.log(result);
 
-                    success: function(result){
-                        console.log(result);
+        //           }});
 
-                    }
-
-                });
+        //     });
 
 
-            }
+        //     function ajax_post_sort(element,img_id){
+
+        //         // console.log(element.value);
+        //         var sort = element.value;
+
+        //         $.ajax({
+
+        //             // 送出的路徑
+        //             url: "/home/ajax_post_sort",
+        //             //   方法 預設get
+        //             method: 'post',
+
+        //             //  點擊抓到的id
+        //             data: {
+        //                 id:img_id,
+        //                 sort:sort,
+        //             },
+
+        //             success: function(result){
+        //                 console.log(result);
+
+        //             }
+
+        //         });
+
+
+        //     }
 
             // $(document).ready(function() {
             //     $('#content').summernote({

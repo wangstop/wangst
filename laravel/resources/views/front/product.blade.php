@@ -1,7 +1,16 @@
 
 
 @extends('/layouts/nav')
+@section('css')
+<style>
 
+.padding-top{
+        padding-top: 100px
+    }
+
+</style>
+
+@endsection
 
 @section('content')
 
