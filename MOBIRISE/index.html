@@ -28,11 +28,29 @@
             width: 100%;
         }
 
-        video{
-           width: 100%;
+        video {
+            width: 100%;
+        }
+
+        .prev-icon {
+
+            width: 16px;
+            height: 16px;
+            background-image: url('/assets/images/back.svg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .next-icon {
+
+            width: 16px;
+            height: 16px;
+            background-image: url('/assets/images/next.svg');
+            background-position: center;
+            background-size: cover;
         }
     </style>
-    
+
 
 </head>
 
@@ -184,32 +202,33 @@
                 </div>
 
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <a class="carousel-control-prev bg-light text-dark" href="#carouselExampleIndicators" role="button"
+                data-slide="prev">
+                <span class="prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
         </div>
     </section>
 
 
-    <section >
+    <section>
         <div class="video-title text-center pt-5 pb-4">
             <h1>序章</h1>
         </div>
         <div class="video">
-        <video autoplay="" muted="" loop="" id="" class="">
-            <source  src="./assets/images/小時光麵館序章.mp4" type="video/mp4">
-        </video>
+            <video autoplay="" muted="" loop="" id="" class="">
+                <source src="./assets/images/小時光麵館序章.mp4" type="video/mp4">
+            </video>
 
         </div>
 
 
     </section>
-    
+
 
     <section>
 
@@ -252,11 +271,11 @@
 
 
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
         </div>
