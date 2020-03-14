@@ -71,7 +71,7 @@
 
           <div class="form-group">
             <label for="content">Content</label>
-            <textarea type="text" class="form-control" id="content" name="content" value="{{$news->title}}"></textarea>
+            <textarea type="text" class="form-control" id="content" name="content" value="{!!$news->content!!}"></textarea>
           </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

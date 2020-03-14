@@ -38,7 +38,7 @@
                 </td>
                 <td>{{$item->title}}</td>
                 <td>{{$item->sort}}</td>
-                <td>{{$item->content}}</td>
+                <td>{!!$item->content!!}</td>
 
                 <td>
                 <a href="/admin/news/edit/{{$item->id}}" class="btn btn-success ">修改</a>

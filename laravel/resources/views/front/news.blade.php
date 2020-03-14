@@ -1,13 +1,23 @@
 
 @extends('layouts/nav')
+
+@section('css')
+<style>
+
+    .pt{
+        padding-top: 100px
+    }
+</style>
+
+@endsection
 @section('content')
 <section class="engine"><a href="https://mobirise.info/x">css templates</a></section><section class="features3 cid-rRF3umTBWU" id="features3-7">
 
 
 
 
-    <div class="container">
-        <div class="media-container-row padding-top">
+    <div class="container pt">
+        <div class="media-container-row ">
 
             @foreach ($news_data as $item)
             <div class="card p-3 col-12 col-md-6 col-lg-4">
@@ -20,7 +30,7 @@
                             {{$item->title}}
                         </h4>
                         <p class="mbr-text mbr-fonts-style display-7">
-                            {{$item->content}}
+                            {!!$item->content!!}
                         </p>
                     </div>
                     <div class="mbr-section-btn text-center">
@@ -38,4 +48,12 @@
 </section>
 @endsection
 
+@section('js')
+
+<script>
+    $('.card-box *').attr('style','');
+
+</script>
+
+@endsection
 
