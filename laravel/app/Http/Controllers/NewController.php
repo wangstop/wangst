@@ -33,7 +33,7 @@ class NewController extends Controller
         // dd($file_name);
         // $file_name覆蓋 $news_data的圖片
         // $news_data['img'] = $file_name;
-
+            $new = News::create($news_data);
         // 檢查是否有檔案
         if ($request->hasFile('img')) {
 
@@ -47,7 +47,7 @@ class NewController extends Controller
             $news_data['img'] = $path;
         }
 
-        $new = News::create($news_data);
+
 
         if ($request->hasFile('multipleimg')) {
             $files = $request->file('multipleimg');
