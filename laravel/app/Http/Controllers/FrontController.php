@@ -142,6 +142,9 @@ class FrontController extends Controller
 
 
         // to('寄往的信箱')
+        
+        // send(new OrderShipped($contact)
+        // 把contact送到OrderShipped
 
         Mail::to('m10612071@gemail.yuntech.edu.tw')->send(new OrderShipped($contact));
 

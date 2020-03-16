@@ -17,9 +17,13 @@ class OrderShipped extends Mailable
      *
      * @return void
      */
-    public function __construct(contactUs $content)
+    // __construct為建構值
+    // 把FrontController->contactUs_store的$contact接近來使用
+
+    public function __construct(contactUs $contact)
     {
-        $this->content = $content;
+        // 宣告變數在裡面使用
+        $this->contact = $contact;
     }
 
     /**
@@ -29,6 +33,11 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->subject('感謝你的來信')->markdown('emails.orders.shipped')->with('content',$this->content);
+        // content為shipped.blade.php檔使用
+        return $this->subject('感謝你的來信')->markdown('emails.orders.shipped')->with('content',$this->contact);
     }
+
+        //$message->subject($subject); (定義信件標題)
+        //$message->attach($pathToFile, array $options = []); (寄送附件)
+        //$message->with(變數名稱, 變數來源) (上方__construct預先定義的資料庫內容,引入何種資料庫在constuct定義,並無限制)
 }
