@@ -10,9 +10,11 @@ use App\News_img;
 use App\Products;
 use App\contactUs;
 
+use App\Mail\OrderShipped;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class FrontController extends Controller
 {
@@ -131,6 +133,18 @@ class FrontController extends Controller
         $contact_data = $request->all();
 
         $contact = contactUs::create($contact_data);
+
+        // 寄信
+        // 安裝指令
+        // 1.php artisan make:mail OrderShipped //產生mail model
+        // 2.Mail::to($request->user())->send(new OrderShipped($order));
+        // 3.php artisan make:mail OrderShipped --markdown=emails.orders.shipped
+
+
+        // to('寄往的信箱')
+
+        Mail::to('m10612071@gemail.yuntech.edu.tw')->send(new OrderShipped($contact));
+
 
         return redirect('/contactUs');
 
