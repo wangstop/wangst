@@ -66,6 +66,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="/contactUs">
+                        <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
+                        聯絡我們
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link link text-white display-4" href="/proucts_Types
                     ">
                         <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>

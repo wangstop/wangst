@@ -8,6 +8,7 @@ use DB;
 use App\News;
 use App\News_img;
 use App\Products;
+use App\contactUs;
 
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
@@ -113,6 +114,25 @@ class FrontController extends Controller
         // dd($items);
 
         return view('/front/cart',compact('items'));
+
+    }
+
+    public function contactUs(){
+
+
+        return view('/front/contactUs');
+
+    }
+
+
+
+    public function contactUs_store(Request $request){
+
+        $contact_data = $request->all();
+
+        $contact = contactUs::create($contact_data);
+
+        return redirect('/contactUs');
 
     }
 

@@ -16,6 +16,7 @@ Route::get('/', 'FrontController@index');
 // Route::get('/', 'FrontController@news');
 
 Route::get('/news','FrontController@news');
+Route::get('/front/news_inner/{id}','FrontController@news_inner');
 
 
 
@@ -25,6 +26,7 @@ Route::get('/products','FrontController@proucts');
 
 
 // 購物首頁
+
 Route::get('/product_detail/{product_id}','FrontController@product_detail');
 
 
@@ -37,8 +39,9 @@ Route::get('/cart','FrontController@cart_total');
 
 // Route::get('/front/cart','FrontController@cart_total');
 
-
-Route::get('/front/news_inner/{id}','FrontController@news_inner');
+// 聯絡我們
+Route::get('/contactUs','FrontController@contactUs');
+Route::post('/contactUs/store','FrontController@contactUs_store');
 
 
 Auth::routes();
