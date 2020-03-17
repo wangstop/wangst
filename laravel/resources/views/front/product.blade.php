@@ -43,8 +43,8 @@
                             </p>
                             <!--Btn-->
                             <div class="mbr-section-btn align-left">
-                                <a href="https://mobirise.co" class="btn btn-warning-outline display-4">
-                                    $ 790
+                                <a href="/product_detail/{{$item->id}}" class="btn btn-warning-outline display-4">
+                                    購買
                                 </a>
                             </div>
                         </div>

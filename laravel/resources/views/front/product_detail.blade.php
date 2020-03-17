@@ -258,10 +258,6 @@ li{
 
         var capacity=$(this).attr("data-capacity");
         $('#capacity').val(capacity);
-
-
-
-
     })
 
 

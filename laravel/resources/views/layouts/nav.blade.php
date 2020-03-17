@@ -91,7 +91,7 @@
 
 
             <div class="navbar-buttons mbr-section-btn">
-                <a class="btn btn-sm btn-primary display-4" href="/proucts_Types">
+                <a class="btn btn-sm btn-primary display-4" href="/proucts_detail">
                     Shopping
                 </a>
             </div>

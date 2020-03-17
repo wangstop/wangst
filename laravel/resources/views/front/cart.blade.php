@@ -137,16 +137,19 @@
                 </div>
 
                 @foreach ($items as $item)
+                @csrf
                <div class="Cart__product">
                <div class="Cart__productGrid Cart__productImg"></div>
                   <div class="Cart__productGrid Cart__productTitle">
                     {{$item->name}}
                   </div>
                   <div class="Cart__productGrid Cart__productPrice"> ${{$item->price}}</div>
-                  <div class="Cart__productGrid Cart__productQuantity">
-                  <button class="btn btn-info btn-sm btn-minus" data-itemid="{{$items->id}}">+</button>
+
+                  <div class="Cart__productGrid Cart__productQuantity d-flex">
+
+                  <button class="btn btn-info btn-sm btn-minus" data-itemid="">+</button>
                   <span>{{$item->quantity}}</span>
-                  <button class="btn btn-info btn-sm btn-plus" data-itemid="{{$items->id}}">-</button>
+                  <button class="btn btn-info btn-sm btn-plus" >-</button>
 
                   </div>
 
@@ -182,7 +185,8 @@
             // 點擊的id
             // var nameid=this.getAttribute('datanewingid');
             console.log(this.getAttribute('data-itemid'));
-
+            // {{$item->quantity}}
+        });
             // $.ajax({
 
             //     // 送出的路徑
@@ -202,12 +206,12 @@
 
             //       }});
 
-            });
-            $('.btn-plus').click(function(){
+            // });
+            // $('.btn-plus').click(function(){
 
             // 點擊的id
             // var nameid=this.getAttribute('data-itemid');
-            console.log(this.getAttribute('data-itemid'));
+            // console.log(this.getAttribute('data-itemid'));
 
             // $.ajax({
 
@@ -228,7 +232,7 @@
 
             //       }});
 
-});
+// });
 
 </script>
 

@@ -22,10 +22,6 @@ class FrontController extends Controller
         return view('front/index');
     }
 
-
-
-
-
     public function news_inner($id){
 
         // 方法一
@@ -58,14 +54,12 @@ class FrontController extends Controller
     //     return view('front/product');
     // }
 
-
     public function proucts_Types(){
 
         $product_data = DB::table('product_types')->orderBy('sort','desc')->get();
 
         return view('front/product_type',compact('product_data'));
     }
-
 
     public function proucts(){
 
@@ -89,9 +83,8 @@ class FrontController extends Controller
     public function add_cart($product_id){
         // 產品id
         $Product = Products::find($product_id); // assuming you have a Product model with id, name, description & price
+        dd($Product);
         $rowId = $product_id; // generate a unique() row ID
-
-
 
 
         // add the product to cart
