@@ -83,7 +83,7 @@ class FrontController extends Controller
     public function add_cart($product_id){
         // 產品id
         $Product = Products::find($product_id); // assuming you have a Product model with id, name, description & price
-        dd($Product);
+        // dd($Product);
         $rowId = $product_id; // generate a unique() row ID
 
 
@@ -92,7 +92,7 @@ class FrontController extends Controller
             'id' => $rowId,
             'name' => $Product->title,
             'price' => $Product->price,
-            'quantity' => 1,
+            'quantity' => 3,
             'attributes' => array(),
             'associatedModel' => $Product
         ));
