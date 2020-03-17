@@ -136,32 +136,31 @@
                   <div class="Cart__headerGrid">刪除</div>
                 </div>
 
-                <div class="Cart-content">
                         @foreach ($items as $item)
                         @csrf
-                    <div class="Cart__product">
-                    <div class="Cart__productGrid Cart__productImg"></div>
-                        <div class="Cart__productGrid Cart__productTitle">
-                            {{$item->name}}
-                        </div>
-                        <div class="Cart__productGrid Cart__productPrice Price" data-itemid="{{$item->id}}"> ${{$item->price}}</div>
+                    <div class="Cart__product" data-itemid="{{$item->id}}">
+                        <div class="Cart__productGrid Cart__productImg"></div>
+                            <div class="Cart__productGrid Cart__productTitle">
+                                {{$item->name}}
+                            </div>
+                            <div class="Cart__productGrid Cart__productPrice Price" data-itemid="{{$item->id}}"> ${{$item->price}}
+                            </div>
 
-                        <div class="Cart__productGrid Cart__productQuantity d-flex">
+                            <div class="Cart__productGrid Cart__productQuantity d-flex">
 
-                        <button class="btn btn-info btn-sm btn-minus" data-itemid="{{$item->id}}">-</button>
-                        <span class="qty" data-itemid="{{$item->id}}">{{$item->quantity}}</span>
-                        <button class="btn btn-info btn-sm btn-plus" data-itemid="{{$item->id}}">+</button>
+                            <button class="btn btn-info btn-sm btn-minus" data-itemid="{{$item->id}}">-</button>
+                            <span class="qty" data-itemid="{{$item->id}}">{{$item->quantity}}</span>
+                            <button class="btn btn-info btn-sm btn-plus" data-itemid="{{$item->id}}">+</button>
 
-                        </div>
+                            </div>
 
 
-                        <div class="Cart__productGrid Cart__productTotal total" data-itemid="{{$item->id}}">{{$item->price * $item->quantity}}</div>
-                        <button class="Cart__productGrid Cart__productDel btn btn-info btn-sm btn-del" data-itemid="{{$item->id}}">&times;</button>
+                            <div class="Cart__productGrid Cart__productTotal total" data-itemid="{{$item->id}}">{{$item->price * $item->quantity}}</div>
+                            <button class="Cart__productGrid Cart__productDel btn btn-info btn-sm btn-del" data-itemid="{{$item->id}}">&times;</button>
                         </div>
 
                         @endforeach
 
-                </div>
 
 
 
@@ -275,7 +274,7 @@
                 url: '/delete_cart/'+itemid,
                 data: {},
                 success: function (res) {
-                    $('.Cart-content').remove(itemid);
+                    $(`.Cart__product[data-itemid=${itemid}]`).remove();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.error(textStatus + " " + errorThrown);
