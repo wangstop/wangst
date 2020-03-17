@@ -136,29 +136,33 @@
                   <div class="Cart__headerGrid">刪除</div>
                 </div>
 
-                @foreach ($items as $item)
-                @csrf
-               <div class="Cart__product">
-               <div class="Cart__productGrid Cart__productImg"></div>
-                  <div class="Cart__productGrid Cart__productTitle">
-                    {{$item->name}}
-                  </div>
-                  <div class="Cart__productGrid Cart__productPrice"> ${{$item->price}}</div>
+                <div class="Cart-content">
+                        @foreach ($items as $item)
+                        @csrf
+                    <div class="Cart__product">
+                    <div class="Cart__productGrid Cart__productImg"></div>
+                        <div class="Cart__productGrid Cart__productTitle">
+                            {{$item->name}}
+                        </div>
+                        <div class="Cart__productGrid Cart__productPrice Price" data-itemid="{{$item->id}}"> ${{$item->price}}</div>
 
-                  <div class="Cart__productGrid Cart__productQuantity d-flex">
+                        <div class="Cart__productGrid Cart__productQuantity d-flex">
 
-                  <button class="btn btn-info btn-sm btn-minus" data-itemid="">+</button>
-                  <span>{{$item->quantity}}</span>
-                  <button class="btn btn-info btn-sm btn-plus" >-</button>
+                        <button class="btn btn-info btn-sm btn-minus" data-itemid="{{$item->id}}">-</button>
+                        <span class="qty" data-itemid="{{$item->id}}">{{$item->quantity}}</span>
+                        <button class="btn btn-info btn-sm btn-plus" data-itemid="{{$item->id}}">+</button>
 
-                  </div>
+                        </div>
 
 
-                  <div class="Cart__productGrid Cart__productTotal">{{$item->price * $item->quantity}}</div>
-                  <div class="Cart__productGrid Cart__productDel">&times;</div>
+                        <div class="Cart__productGrid Cart__productTotal total" data-itemid="{{$item->id}}">{{$item->price * $item->quantity}}</div>
+                        <button class="Cart__productGrid Cart__productDel btn btn-info btn-sm btn-del" data-itemid="{{$item->id}}">&times;</button>
+                        </div>
+
+                        @endforeach
+
                 </div>
 
-                @endforeach
 
 
               </div>
@@ -172,67 +176,116 @@
 @section('js')
 
 <script>
-                // 表單認證
+         // 表單認證
+        //  ajax檢查方式 到網頁檢查->Network
         $.ajaxSetup({
             headers: {
+
+            // 記得在nav.blade.php加  <meta name="csrf-token" content="{{ csrf_token() }}">
+
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
 
+        // +-案件事件
+        // 1.設定屬性並抓取id data-itemid="{{$item->id}}
+        // 2.getAttribute('data-itemid') 抓id
+        //itemid是抓到的id
 
         $('.btn-minus').click(function(){
 
-            // 點擊的id
-            // var nameid=this.getAttribute('datanewingid');
-            console.log(this.getAttribute('data-itemid'));
-            // {{$item->quantity}}
+            var itemid = this.getAttribute('data-itemid');
+
+            $.ajax({
+                method: 'POST',
+                url: '/update_cart/'+itemid,
+                // 傳物件去''/update_cart'+itemid
+                data: {
+                    quantity:-1,
+                },
+                success: function (res) {
+                    // 搜尋jquery get data attribute selector
+
+                    //搜尋jquery change value
+                    // old_value為字串
+                    // .text()在=右邊 :取得裡面的數值
+                    var old_value = $(`.qty[data-itemid="${itemid}"`).text();
+                    var new_value = Math.max(parseInt(old_value) -1,0);
+                    // .text(new_value):宣告新的數值給他
+                    $(`.qty[data-itemid="${itemid}"`).text(new_value);
+
+                    // 總計
+                    var price = $(`.Price[data-itemid="${itemid}"`).text();
+
+                    var old_total = $(`.total[data-itemid="${itemid}"`).text();
+                    var new_total = Math.max(parseInt(old_total) - parseInt(price),0);
+                    $(`.total[data-itemid="${itemid}"`).text(new_total);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus + " " + errorThrown);
+                }
         });
-            // $.ajax({
 
-            //     // 送出的路徑
-            //       url: "/admin/news/ajax",
-            //     //   方法 預設get
-            //       method: 'post',
+    })
+        $('.btn-plus').click(function(){
 
-            //     //  點擊抓到的id
-            //       data: {
-            //         nameid:nameid,
-            //       },
+            var itemid = this.getAttribute('data-itemid');
 
-            //       success: function(result){
-            //         $(`.col-2[data-itemid=${nameid}]`).remove();
+            $.ajax({
+                method: 'POST',
+                url: '/update_cart/'+itemid,
+                data: {
+                    quantity:1,
+                },
+                success: function (res) {
+                    // 搜尋jquery get data attribute selector
 
-            //         // console.log(result);
+                    //搜尋jquery change value
+                    // old_value為字串
+                    // .text()在=右邊 :取得裡面的數值
+                    var old_value = $(`.qty[data-itemid="${itemid}"`).text();
+                    var new_value = parseInt(old_value) +1;
+                    // .text(new_value):宣告新的數值給他
+                    $(`.qty[data-itemid="${itemid}"`).text(new_value);
+                    // console.log(new_value);
 
-            //       }});
+                    // 總計
+                    var price = $(`.Price[data-itemid="${itemid}"`).text();
 
-            // });
-            // $('.btn-plus').click(function(){
+                    var old_total = $(`.total[data-itemid="${itemid}"`).text();
+                    var new_total = Math.max(parseInt(old_total) + parseInt(price),0);
+                    $(`.total[data-itemid="${itemid}"`).text(new_total);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus + " " + errorThrown);
+                }
+        });
 
-            // 點擊的id
-            // var nameid=this.getAttribute('data-itemid');
-            // console.log(this.getAttribute('data-itemid'));
 
-            // $.ajax({
+    })
 
-            //     // 送出的路徑
-            //       url: "/admin/news/ajax",
-            //     //   方法 預設get
-            //       method: 'post',
+        $('.btn-del').click(function(){
 
-            //     //  點擊抓到的id
-            //       data: {
-            //         nameid:nameid,
-            //       },
+            var itemid = this.getAttribute('data-itemid');
 
-            //       success: function(result){
-            //         $(`.col-2[datanewingid=${nameid}]`).remove();
+            var r=confirm("確定要將商品移除嗎?")
 
-            //         // console.log(result);
+            $.ajax({
+                method: 'POST',
+                url: '/delete_cart/'+itemid,
+                data: {},
+                success: function (res) {
+                    $('.Cart-content').remove(itemid);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus + " " + errorThrown);
+                }
+            });
 
-            //       }});
 
-// });
+    })
+
+
 
 </script>
 

@@ -92,16 +92,43 @@ class FrontController extends Controller
             'id' => $rowId,
             'name' => $Product->title,
             'price' => $Product->price,
-            'quantity' => 3,
+            'quantity' => 1,
             'attributes' => array(),
             'associatedModel' => $Product
         ));
         return redirect('cart');
     }
 
+    public function update_cart(Request $request ,$product_id){
+
+        $quantity = $request->quantity;
+        // Cart::update(點擊的id, array(
+        //     'quantity' => $quantity,
+        //   ));
+
+        \Cart::update($product_id, array(
+
+            // 'quantity' => $quantity,會將目前的數量做+-1的動作
+            'quantity' => $quantity, // so if the current product has a quantity of 4, another 2 will be added so this will result to 6
+          ));
+
+        return 'success';
+
+    }
+
+    public function delete_cart(Request $request ,$product_id){
+
+        \Cart::remove($product_id);
+
+
+        return 'success';
+
+    }
+
     public function cart_total(){
 
-        $items = \Cart::getContent();
+        // 加sort()會使產品順序不會隨意互換
+        $items = \Cart::getContent()->sort();
         // dd($items);
 
         return view('/front/cart',compact('items'));

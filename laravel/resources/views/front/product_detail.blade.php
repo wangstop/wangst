@@ -298,9 +298,9 @@ li{
             return false;
         }
 
-        $('#plus').bind('click', {increment: 1}, incrementValue);
+                $('#plus').bind('click', {increment: 1}, incrementValue);
 
-        $('#minus').bind('click', {increment: -1}, incrementValue);
+                $('#minus').bind('click', {increment: -1}, incrementValue);
 
         });
 

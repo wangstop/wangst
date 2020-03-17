@@ -36,8 +36,10 @@ Route::post('/add_cart/{product_id}','FrontController@add_cart');
 // 總覽
 Route::get('/cart','FrontController@cart_total');
 
-
-// Route::get('/front/cart','FrontController@cart_total');
+// 更新購物車數量
+Route::post('/update_cart/{product_id}','FrontController@update_cart');
+// 刪除商品
+Route::post('/delete_cart/{product_id}','FrontController@delete_cart');
 
 // 聯絡我們
 Route::get('/contactUs','FrontController@contactUs');
