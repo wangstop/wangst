@@ -143,7 +143,14 @@
                     {{$item->name}}
                   </div>
                   <div class="Cart__productGrid Cart__productPrice"> ${{$item->price}}</div>
-                  <div class="Cart__productGrid Cart__productQuantity">{{$item->quantity}}</div>
+                  <div class="Cart__productGrid Cart__productQuantity">
+                  <button class="btn btn-info btn-sm btn-minus" data-itemid="{{$items->id}}">+</button>
+                  <span>{{$item->quantity}}</span>
+                  <button class="btn btn-info btn-sm btn-plus" data-itemid="{{$items->id}}">-</button>
+
+                  </div>
+
+
                   <div class="Cart__productGrid Cart__productTotal">{{$item->price * $item->quantity}}</div>
                   <div class="Cart__productGrid Cart__productDel">&times;</div>
                 </div>
@@ -156,4 +163,73 @@
         </div>
     </div>
 </section>
+@endsection
+
+
+@section('js')
+
+<script>
+                // 表單認證
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+        $('.btn-minus').click(function(){
+
+            // 點擊的id
+            // var nameid=this.getAttribute('datanewingid');
+            console.log(this.getAttribute('data-itemid'));
+
+            // $.ajax({
+
+            //     // 送出的路徑
+            //       url: "/admin/news/ajax",
+            //     //   方法 預設get
+            //       method: 'post',
+
+            //     //  點擊抓到的id
+            //       data: {
+            //         nameid:nameid,
+            //       },
+
+            //       success: function(result){
+            //         $(`.col-2[data-itemid=${nameid}]`).remove();
+
+            //         // console.log(result);
+
+            //       }});
+
+            });
+            $('.btn-plus').click(function(){
+
+            // 點擊的id
+            // var nameid=this.getAttribute('data-itemid');
+            console.log(this.getAttribute('data-itemid'));
+
+            // $.ajax({
+
+            //     // 送出的路徑
+            //       url: "/admin/news/ajax",
+            //     //   方法 預設get
+            //       method: 'post',
+
+            //     //  點擊抓到的id
+            //       data: {
+            //         nameid:nameid,
+            //       },
+
+            //       success: function(result){
+            //         $(`.col-2[datanewingid=${nameid}]`).remove();
+
+            //         // console.log(result);
+
+            //       }});
+
+});
+
+</script>
+
 @endsection

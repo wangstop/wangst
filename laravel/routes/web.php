@@ -27,7 +27,7 @@ Route::get('/products','FrontController@proucts');
 
 // 購物首頁
 
-Route::get('/product_detail/{product_id}','FrontController@product_detail');
+Route::post('/product_detail/{product_id}','FrontController@product_detail');
 
 
 // 加入購物車

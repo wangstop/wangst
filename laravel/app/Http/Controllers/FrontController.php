@@ -91,18 +91,15 @@ class FrontController extends Controller
         $Product = Products::find($product_id); // assuming you have a Product model with id, name, description & price
         $rowId = $product_id; // generate a unique() row ID
 
-        // 每一台購物車的id
-        $userID = Auth::user()->id; // the user ID to bind the cart contents
 
-        // dd( $userID);
 
 
         // add the product to cart
-        \Cart::session($userID)->add(array(
+        \Cart::add(array(
             'id' => $rowId,
             'name' => $Product->title,
             'price' => $Product->price,
-            'quantity' => 4,
+            'quantity' => 1,
             'attributes' => array(),
             'associatedModel' => $Product
         ));
@@ -111,8 +108,7 @@ class FrontController extends Controller
 
     public function cart_total(){
 
-        $userID = Auth::user()->id;
-        $items = \Cart::session($userID)->getContent();
+        $items = \Cart::getContent();
         // dd($items);
 
         return view('/front/cart',compact('items'));
@@ -131,6 +127,7 @@ class FrontController extends Controller
     public function contactUs_store(Request $request){
 
         $contact_data = $request->all();
+        dd($contact_data);
 
         $contact = contactUs::create($contact_data);
 
@@ -142,10 +139,14 @@ class FrontController extends Controller
 
 
         // to('寄往的信箱')
-        
+
         // send(new OrderShipped($contact)
         // 把contact送到OrderShipped
 
+        // 寄信user
+        Mail::to($contact_data['email'])->send(new OrderShipped($contact));
+
+        // 寄信mail
         Mail::to('m10612071@gemail.yuntech.edu.tw')->send(new OrderShipped($contact));
 
 
