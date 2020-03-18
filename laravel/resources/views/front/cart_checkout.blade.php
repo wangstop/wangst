@@ -160,7 +160,37 @@
                          {{-- {{加兩個大括弧可以寫PHP}} --}}
                         總計:{{\Cart::getTotal()}}
                         </div>
+                        <div class="container">
+                            <form method="POST" action="/cart_checkout">
+                                @csrf
+                                <div class="form-group row">
+                                    <label for="recipient_name" class="col-sm-2 col-form-label">收件人名稱</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="recipient_name" name="recipient_name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="recipient_phone" class="col-sm-2 col-form-label">收件人電話</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="recipient_phone" name="recipient_phone">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="recipient_address" class="col-sm-2 col-form-label">收件人地址</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="recipient_address" name="recipient_address">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="shipment_time" class="col-sm-2 col-form-label">送貨時間</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="shipment_time" name="shipment_time">
+                                    </div>
+                                </div>
 
+                                <button class="btn btn-sm btn-primary">成立訂單，並前往付款</button>
+                            </form>
+                        </div>
 
 
 
