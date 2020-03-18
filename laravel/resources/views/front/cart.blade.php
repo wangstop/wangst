@@ -143,7 +143,7 @@
                             <div class="Cart__productGrid Cart__productTitle">
                                 {{$item->name}}
                             </div>
-                            <div class="Cart__productGrid Cart__productPrice Price" data-itemid="{{$item->id}}"> ${{$item->price}}
+                            <div class="Cart__productGrid Cart__productPrice price" data-itemid="{{$item->id}}">{{$item->price}}
                             </div>
 
                             <div class="Cart__productGrid Cart__productQuantity d-flex">
@@ -214,12 +214,15 @@
                     $(`.qty[data-itemid="${itemid}"`).text(new_value);
 
                     // 總計
-                    var price = $(`.Price[data-itemid="${itemid}"`).text();
+                    var price = $(`.price[data-itemid="${itemid}"`).text();
 
                     var old_total = $(`.total[data-itemid="${itemid}"`).text();
+
                     var new_total = Math.max(parseInt(old_total) - parseInt(price),0);
+
                     $(`.total[data-itemid="${itemid}"`).text(new_total);
                 },
+
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.error(textStatus + " " + errorThrown);
                 }
@@ -249,10 +252,12 @@
                     // console.log(new_value);
 
                     // 總計
-                    var price = $(`.Price[data-itemid="${itemid}"`).text();
+                    var price = $(`.price[data-itemid="${itemid}"`).text();
 
                     var old_total = $(`.total[data-itemid="${itemid}"`).text();
+
                     var new_total = Math.max(parseInt(old_total) + parseInt(price),0);
+
                     $(`.total[data-itemid="${itemid}"`).text(new_total);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
