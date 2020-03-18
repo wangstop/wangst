@@ -11,6 +11,7 @@ use App\News_img;
 use App\Products;
 
 use App\contactUs;
+use App\OrderDetail;
 use App\Mail\OrderShipped;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
@@ -94,10 +95,11 @@ class FrontController extends Controller
         $Product = Products::find($product_id); // assuming you have a Product model with id, name, description & price
         // dd($Product);
         $rowId = $product_id; // generate a unique() row ID
+        $userID = Auth::user()->id;
 
 
         // add the product to cart
-        \Cart::add(array(
+        \Cart::session($userID)->add(array(
             'id' => $rowId,
             'name' => $Product->title,
             'price' => $Product->price,
@@ -137,8 +139,9 @@ class FrontController extends Controller
 
     public function cart_total(){
 
+        $userID = Auth::user()->id;
         // 加sort()會使產品順序不會隨意互換
-        $items = \Cart::getContent()->sort();
+        $items = \Cart::session($userID)->getContent()->sort();
         // dd($items);
 
         return view('/front/cart',compact('items'));
@@ -152,6 +155,50 @@ class FrontController extends Controller
         return view('/front/cart_checkout',compact('items'));
 
     }
+
+
+    public function cart_checkout_end(Request $request){
+
+        // 建立訂單
+        $Recipient_name = $request->Recipient_name;
+        $Recipient_phone = $request->Recipient_phone;
+        $Recipient_address = $request->Recipient_address;
+        $shipment_time = $request->shipment_time;
+        $total_price =  \Cart::getTotal();
+
+        // 價錢超過1000免運費
+        if( $total_price > 1000)
+        $shipment_time = 0;
+        else
+        $shipment_time = 120;
+
+        // 把請求過來的資料一筆一筆丟進去
+        $order = new Order;
+
+        $order->Recipient_name = $Recipient_name;
+        $order->Recipient_phone = $Recipient_phone;$order->Recipient_address = $Recipient_address;$order->shipment_time = $shipment_time;
+        $order->totalPrice = $total_price;
+        $order->save();
+        $order_id = $order->id;
+
+        // 建立訂單詳細
+        $items = \Cart::getContent();
+        // dd($items);
+        foreach($items as $row) {
+        $order_detail = new OrderDetail;
+        $order_detail->order_id = $order_id;
+        $order_detail->product_id = $row->id;
+        $order_detail->qty = $row->quantity;
+        $order_detail->price = $row->price;
+        $order_detail->save();
+
+
+
+        }
+
+
+    }
+
     public function order(){
 
        $order = Order::with('order_detail')->get();

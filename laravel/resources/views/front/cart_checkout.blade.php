@@ -158,27 +158,29 @@
 
                         <div class="text-right">
                          {{-- {{加兩個大括弧可以寫PHP}} --}}
-                        總計:{{\Cart::getTotal()}}
+                        總計:{{\Cart::getTotal()}}<br />
+                        運費:@if(\Cart::getTotal()>1000) 免運費 @else $120 @endif
+
                         </div>
                         <div class="container">
-                            <form method="POST" action="/cart_checkout">
+                            <form method="POST" action="/cart_checkout_end">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="recipient_name" class="col-sm-2 col-form-label">收件人名稱</label>
+                                    <label for="Recipient_name" class="col-sm-2 col-form-label">收件人名稱</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="recipient_name" name="recipient_name">
+                                        <input type="text" class="form-control" id="Recipient_name" name="Recipient_name">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="recipient_phone" class="col-sm-2 col-form-label">收件人電話</label>
+                                    <label for="Recipient_phone" class="col-sm-2 col-form-label">收件人電話</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="recipient_phone" name="recipient_phone">
+                                        <input type="text" class="form-control" id="Recipient_phone" name="Recipient_phone">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="recipient_address" class="col-sm-2 col-form-label">收件人地址</label>
+                                    <label for="Recipient_address" class="col-sm-2 col-form-label">收件人地址</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="recipient_address" name="recipient_address">
+                                        <input type="text" class="form-control" id="Recipient_address" name="Recipient_address">
                                     </div>
                                 </div>
                                 <div class="form-group row">
