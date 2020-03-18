@@ -43,6 +43,7 @@ Route::post('/delete_cart/{product_id}','FrontController@delete_cart');
 // 結帳頁
 Route::get('/cart_checkout','FrontController@cart_checkout');
 
+Route::post('/cart_checkout_end','FrontController@cart_checkout_end');
 
 Route::get('/order','FrontController@order');
 
