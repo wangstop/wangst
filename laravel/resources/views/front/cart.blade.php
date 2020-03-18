@@ -136,7 +136,7 @@
                   <div class="Cart__headerGrid">刪除</div>
                 </div>
 
-                        @foreach ($items as $item)
+                @foreach ($items as $item)
                         @csrf
                     <div class="Cart__product" data-itemid="{{$item->id}}">
                         <div class="Cart__productGrid Cart__productImg"></div>
@@ -159,12 +159,13 @@
                             <button class="Cart__productGrid Cart__productDel btn btn-info btn-sm btn-del" data-itemid="{{$item->id}}">&times;</button>
                         </div>
 
-                        @endforeach
-
+                    @endforeach
 
 
 
               </div>
+
+
 
         </div>
     </div>

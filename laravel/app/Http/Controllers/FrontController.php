@@ -111,6 +111,7 @@ class FrontController extends Controller
     public function update_cart(Request $request ,$product_id){
 
         $quantity = $request->quantity;
+
         // Cart::update(點擊的id, array(
         //     'quantity' => $quantity,
         //   ));
@@ -144,6 +145,13 @@ class FrontController extends Controller
 
     }
 
+    public function cart_checkout(){
+
+        $items = \Cart::getContent()->sort();
+
+        return view('/front/cart_checkout',compact('items'));
+
+    }
     public function order(){
 
        $order = Order::with('order_detail')->get();
