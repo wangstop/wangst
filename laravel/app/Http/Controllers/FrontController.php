@@ -6,18 +6,27 @@ namespace App\Http\Controllers;
 use DB;
 
 use App\News;
+use App\Order;
 use App\News_img;
 use App\Products;
-use App\contactUs;
 
+use App\contactUs;
 use App\Mail\OrderShipped;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use TsaiYiHua\ECPay\Checkout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class FrontController extends Controller
 {
+    protected $checkout;
+
+    public function __construct(Checkout $checkout)
+    {
+        $this->checkout = $checkout;
+    }
+
     public function index(){
         return view('front/index');
     }
@@ -135,6 +144,17 @@ class FrontController extends Controller
 
     }
 
+    public function order(){
+
+       $order = Order::with('order_detail')->get();
+    //    dd($order);
+
+
+    }
+
+
+
+
     public function contactUs(){
 
 
@@ -173,5 +193,18 @@ class FrontController extends Controller
         return redirect('/contactUs');
 
     }
+
+    public function text_checkout()
+    {
+        $formData = [
+            'UserId' => 1, // 用戶ID , Optional
+            'ItemDescription' => '產品簡介',
+            'ItemName' => 'Product Name',
+            'TotalAmount' => '2000',
+            'PaymentMethod' => 'Credit', // ALL, Credit, ATM, WebATM
+        ];
+        return $this->checkout->setPostData($formData)->send();
+    }
+
 
 }

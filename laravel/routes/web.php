@@ -40,6 +40,16 @@ Route::get('/cart','FrontController@cart_total');
 Route::post('/update_cart/{product_id}','FrontController@update_cart');
 // 刪除商品
 Route::post('/delete_cart/{product_id}','FrontController@delete_cart');
+// 結帳頁
+Route::get('/cart_checkout','FrontController@cart_checkout');
+
+
+Route::get('/order','FrontController@order');
+
+
+// 綠界金流
+Route::get('/text_checkout','FrontController@text_checkout');
+
 
 // 聯絡我們
 Route::get('/contactUs','FrontController@contactUs');
