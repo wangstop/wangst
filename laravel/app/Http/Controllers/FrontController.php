@@ -95,18 +95,18 @@ class FrontController extends Controller
         $Product = Products::find($product_id); // assuming you have a Product model with id, name, description & price
         // dd($Product);
         $rowId = $product_id; // generate a unique() row ID
-        $userID = Auth::user()->id;
+        // $userID = Auth::user()->id;
 
 
         // add the product to cart
-        \Cart::session($userID)->add(array(
+        \Cart::add(array(
             'id' => $rowId,
             'name' => $Product->title,
             'price' => $Product->price,
             'quantity' => 1,
-            'attributes' => array(),
-            'associatedModel' => $Product
         ));
+
+
         return redirect('cart');
     }
 
@@ -139,9 +139,9 @@ class FrontController extends Controller
 
     public function cart_total(){
 
-        $userID = Auth::user()->id;
+        // $userID = Auth::user()->id;
         // 加sort()會使產品順序不會隨意互換
-        $items = \Cart::session($userID)->getContent()->sort();
+        $items = \Cart::getContent()->sort();
         // dd($items);
 
         return view('/front/cart',compact('items'));
