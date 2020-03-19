@@ -10,7 +10,7 @@ class Order extends Model
 
 
     protected $fillable = [
-        'id','user_id','Recipient_name','Recipient_phone','Recipient_address','shipment_time','totalPrice','ship_status','Purchase_status',
+        'id','order_no','user_id','Recipient_name','Recipient_phone','Recipient_address','shipment_time','totalPrice','ship_status','Purchase_status',
     ];
 
     public function order_detail()

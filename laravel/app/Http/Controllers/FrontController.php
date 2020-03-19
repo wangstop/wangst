@@ -11,6 +11,7 @@ use App\News_img;
 use App\Products;
 
 use App\contactUs;
+use Carbon\Carbon;
 use App\OrderDetail;
 use App\Mail\OrderShipped;
 use Darryldecode\Cart\Cart;
@@ -168,34 +169,98 @@ class FrontController extends Controller
 
         // 價錢超過1000免運費
         if( $total_price > 1000)
-        $shipment_time = 0;
+        $total_price = $total_price + 0;
         else
-        $shipment_time = 120;
+        $total_price = $total_price + 120;
 
         // 把請求過來的資料一筆一筆丟進去
         $order = new Order;
 
         $order->Recipient_name = $Recipient_name;
-        $order->Recipient_phone = $Recipient_phone;$order->Recipient_address = $Recipient_address;$order->shipment_time = $shipment_time;
+        $order->Recipient_phone = $Recipient_phone;
+        $order->Recipient_address = $Recipient_address;
+        $order->shipment_time = $shipment_time;
         $order->totalPrice = $total_price;
         $order->save();
         $order_id = $order->id;
 
+
+        // dd( $order);
         // 建立訂單詳細
-        $items = \Cart::getContent();
+        $cart_contents = \Cart::getContent();
         // dd($items);
-        foreach($items as $row) {
-        $order_detail = new OrderDetail;
-        $order_detail->order_id = $order_id;
-        $order_detail->product_id = $row->id;
-        $order_detail->qty = $row->quantity;
-        $order_detail->price = $row->price;
-        $order_detail->save();
+        $items = [];
+        foreach($cart_contents as $row) {
+            $order_detail = new OrderDetail;
+            $order_detail->order_id = $order_id;
+            $order_detail->product_id = $row->id;
+            $order_detail->qty = $row->quantity;
+            $order_detail->price = $row->price;
+            $order_detail->save();
+
+            // 多筆產品送出訂單要以二維陣列的方式送
+            $product = Products::find($row->id);
+            $product_name = $product->title;
 
 
+            $item = [
+                'name' => $product_name,
+                'qty' => $row->quantity,
+                'price' => $row->price,
+                'unit' => '個'
+            ];
 
+                 array_push($items, $item);
+
+            if($total_price>1000){
+                    $total_price_item = [
+                'name' => "運費",
+                'qty' => 1,
+                'price' => 120,
+                'unit' => '個'
+                ];
+
+             array_push($items, $total_price_item);
+
+            }
+            else{
+                $total_price_item = [
+                    'name' => "運費",
+                    'qty' => 1,
+                    'price' => 120,
+                    'unit' => '個'
+                    ];
+
+                 array_push($items, $total_price_item);
+
+            }
         }
+        // dd($items);
+        // 建立訂單編號
+        // Carbon::now()為時間模組套件
+        // format('內容')可以讓內容改為各式各樣的格式 下面Ymd是數字的格式
+        // $order->order_no = '自行定義名稱'.Carbon::now()->format('Ymd').$order->id;
 
+        // 訂單編號 = apk+時間模組套件+數字+流水號;
+        $order->order_no='apk'.Carbon::now()->format('Ymd').$order->id;
+        dd($order);
+        $order->save();
+
+         //第三方支付
+         $formData = [
+            'UserId' => '', // 用戶ID , Optional
+            'ItemDescription' => '產品簡介',
+            // 'Items' => 二維陣列,
+            'Items' => $items,
+            // 'OrderId' => 'hk'.Carbon::now()->format('Ymd').$new_order->id,
+             // 'ItemName' => 'Product Name',
+             // 'TotalAmount' => \Cart::getTotal(),
+             'PaymentMethod' => 'Credit', // ALL, Credit, ATM, WebATM
+         ];
+        //清空購物車
+        \Cart::clear();
+        // 送到vendor/tsaiyhua/src/Checkout/setPostData()
+        return $this->checkout->setNotifyUrl(route('notify'))->setReturnUrl(route('return'))->setPostData($formData)->send();
 
     }
 

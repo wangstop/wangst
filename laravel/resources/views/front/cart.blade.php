@@ -161,7 +161,7 @@
 
                     @endforeach
                     <div class="text-right mt-3">
-                            <a href="" class="btn btn-sm btn-primary">前往結帳</a>
+                            <a href="/cart_checkout" class="btn btn-sm btn-primary">前往結帳</a>
 
                     </div>
 

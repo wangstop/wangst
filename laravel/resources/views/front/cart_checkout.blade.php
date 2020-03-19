@@ -157,9 +157,17 @@
                         @endforeach
 
                         <div class="text-right">
+                            <?php
+                            if(\Cart::getTotal()>1000)
+                                $ship = 0;
+                            else {
+                                $ship = 120;
+                            }
+                            ?>
+
                          {{-- {{加兩個大括弧可以寫PHP}} --}}
-                        總計:{{\Cart::getTotal()}}<br />
-                        運費:@if(\Cart::getTotal()>1000) 免運費 @else $120 @endif
+                        總計:${{\Cart::getTotal() + $ship}}<br />
+                        運費:${{$ship}}
 
                         </div>
                         <div class="container">

@@ -82,8 +82,12 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link link text-white display-4" href="/product_index">
-                        購物車
+                    <a class="nav-link link text-white display-4" href="">
+                        <?php
+                        $cartCollection = Cart::getContent();
+                        $count = $cartCollection->count();
+                        ?>
+                        購物車({{$count}})
                     </a>
                 </li>
 
