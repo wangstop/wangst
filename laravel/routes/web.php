@@ -22,7 +22,7 @@ Route::get('/front/news_inner/{id}','FrontController@news_inner');
 
 
 Route::get('/proucts_Types', 'FrontController@proucts_Types');
-Route::get('/products','FrontController@proucts');
+Route::get('/products/{products_id}','FrontController@proucts');
 
 
 // 購物首頁

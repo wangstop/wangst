@@ -33,8 +33,8 @@
 
                         <!--Btn-->
                         <div class="mbr-section-btn align-left">
-                            <a href="/products" class="btn btn-warning-outline display-4">
-                                $ 690
+                        <a href="/products/{{$item->id}}" class="btn btn-warning-outline display-4">
+                                詳情>
                             </a>
                         </div>
                     </div>

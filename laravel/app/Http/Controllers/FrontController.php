@@ -58,12 +58,6 @@ class FrontController extends Controller
     }
 
 
-    // public function proucts(){
-
-    //     $product = DB::table('products')->orderBy('sort','desc')->get();
-
-    //     return view('front/product');
-    // }
 
     public function proucts_Types(){
 
@@ -72,9 +66,15 @@ class FrontController extends Controller
         return view('front/product_type',compact('product_data'));
     }
 
-    public function proucts(){
+    public function proucts($products_id){
 
-        $products = DB::table('products')->orderBy('sort','desc')->get();
+        // $products_detail = DB::table('products')->orderBy('sort','desc')->get();
+
+
+        $products = Products::find($products_id);
+        // dd( $products);
+
+
 
         return view('front/product',compact('products'));
     }
