@@ -70,9 +70,10 @@ class FrontController extends Controller
 
         // $products_detail = DB::table('products')->orderBy('sort','desc')->get();
 
+        $products = Products::where('type_id', $products_id)->get();
 
-        $products = Products::find($products_id);
-        // dd( $products);
+        // $products = Products::find($products_id);
+        // dd( $items);
 
 
 

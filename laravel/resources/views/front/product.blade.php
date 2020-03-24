@@ -26,31 +26,31 @@
 
 
 
-                {{-- @foreach ($products as $item) --}}
+                @foreach ($products as $item)
 
                 <div class="card col-12 col-md-6 p-3 col-lg-4 ">
 
                     <div class="card-wrapper">
                         <div class="card-img">
-                            <img src="{{$products->img}}" alt="Mobirise">
+                            <img src="{{$item->img}}" alt="Mobirise">
                         </div>
                         <div class="card-box">
                             <h4 class="card-title mbr-fonts-style display-5">
-                                {{$products->title}}
+                                {{$item->title}}
                             </h4>
                             <p class="mbr-text mbr-fonts-style display-7">
-                                {{$products->content}}
+                                {{$item->content}}
                             </p>
                             <!--Btn-->
                             <div class="mbr-section-btn align-left">
-                                <a href="/product_detail/{{$products->id}}" class="btn btn-warning-outline display-4">
+                                <a href="/product_detail/{{$item->id}}" class="btn btn-warning-outline display-4">
                                     購買
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                {{-- @endforeach --}}
+                @endforeach
 
 
 
