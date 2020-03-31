@@ -111,10 +111,6 @@
 
 <section class="cid-qTkAaeaxX5" id="footer1-2">
 
-
-
-
-
     <div class="container">
         <div class="media-container-row content text-white">
             <div class="col-12 col-md-3">

@@ -137,26 +137,28 @@
                 </div>
 
                 @foreach ($items as $item)
-                        @csrf
-                    <div class="Cart__product" data-itemid="{{$item->id}}">
+
+                    @csrf
+                    <div class="Cart__product" data-itemid="{{$item['id']}}">
+
                         <div class="Cart__productGrid Cart__productImg"></div>
                             <div class="Cart__productGrid Cart__productTitle">
-                                {{$item->name}}
+                                {{$item['name']}}
                             </div>
-                            <div class="Cart__productGrid Cart__productPrice price" data-itemid="{{$item->id}}">{{$item->price}}
+                            <div class="Cart__productGrid Cart__productPrice price" data-itemid="{{$item['id']}}">{{$item['price']}}
                             </div>
 
                             <div class="Cart__productGrid Cart__productQuantity d-flex">
 
-                            <button class="btn btn-info btn-sm btn-minus" data-itemid="{{$item->id}}">-</button>
-                            <span class="qty" data-itemid="{{$item->id}}">{{$item->quantity}}</span>
-                            <button class="btn btn-info btn-sm btn-plus" data-itemid="{{$item->id}}">+</button>
+                            <button class="btn btn-info btn-sm btn-minus" data-itemid="{{$item['id']}}">-</button>
+                            <span class="qty" data-itemid="{{$item['id']}}">{{$item['quantity']}}</span>
+                            <button class="btn btn-info btn-sm btn-plus" data-itemid="{{$item['id']}}">+</button>
 
                             </div>
 
 
-                            <div class="Cart__productGrid Cart__productTotal total" data-itemid="{{$item->id}}">{{$item->price * $item->quantity}}</div>
-                            <button class="Cart__productGrid Cart__productDel btn btn-info btn-sm btn-del" data-itemid="{{$item->id}}">&times;</button>
+                            <div class="Cart__productGrid Cart__productTotal total" data-itemid="{{$item['id']}}">{{$item['price'] * $item['quantity']}}</div>
+                            <button class="Cart__productGrid Cart__productDel btn btn-info btn-sm btn-del" data-itemid="{{$item['id']}}">&times;</button>
                         </div>
 
                     @endforeach
@@ -278,17 +280,27 @@
 
             var r=confirm("確定要將商品移除嗎?")
 
-            $.ajax({
-                method: 'POST',
-                url: '/delete_cart/'+itemid,
-                data: {},
-                success: function (res) {
-                    $(`.Cart__product[data-itemid=${itemid}]`).remove();
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.error(textStatus + " " + errorThrown);
-                }
-            });
+            if (r==true)
+            {
+                $.ajax({
+                    method: 'POST',
+                    url: '/delete_cart/'+itemid,
+                    data: {},
+                    success: function (res) {
+                        $(`.Cart__product[data-itemid=${itemid}]`).remove();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error(textStatus + " " + errorThrown);
+                    }
+                });
+            }
+            else
+            {
+
+            }
+
+
+
 
 
     })

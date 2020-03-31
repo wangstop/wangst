@@ -8,11 +8,9 @@
         <div class="row justify-content-center">
             <div class="title col-12 col-lg-8">
                 <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
-                    CONTACT FORM
+                    聯絡我們
                 </h2>
-                <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-                    Easily add subscribe and contact forms without any server-side integration.
-                </h3>
+
             </div>
         </div>
     </div>
@@ -21,7 +19,7 @@
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <form action="/contactUs/store" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
                     @csrf
-                  
+
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
