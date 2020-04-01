@@ -16,7 +16,7 @@
 
 
 
-    <div class="container pt">
+    <div class="container pt" style="padding-top:200px">
         <div class="media-container-row ">
 
             @foreach ($news_data as $item)

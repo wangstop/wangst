@@ -46,12 +46,11 @@
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="/">
-                         <img src="assets/images/logo2.png" alt="Mobirise" style="height: 3.8rem;">
+                         <img src="assets/images/laravel.png" alt="" style="height: 8rem;">
                     </a>
                 </span>
                 <span class="navbar-caption-wrap">
                     <a class="navbar-caption text-white display-4" href="/">
-                        MOBIRISE
                     </a>
                 </span>
             </div>
@@ -94,11 +93,11 @@
             </ul>
 
 
-            <div class="navbar-buttons mbr-section-btn">
+            {{-- <div class="navbar-buttons mbr-section-btn">
                 <a class="btn btn-sm btn-primary display-4" href="/proucts_detail">
                     Shopping
                 </a>
-            </div>
+            </div> --}}
         </div>
     </nav>
 </section>
@@ -115,40 +114,12 @@
         <div class="media-container-row content text-white">
             <div class="col-12 col-md-3">
                 <div class="media-wrap">
-                    <a href="https://mobirise.com/">
-                        <img src="assets/images/logo2.png" alt="Mobirise">
+                    <a href="">
+                        <img src="assets/images/laravel.png" alt="" style="height: 8rem;">
                     </a>
                 </div>
             </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Address
-                </h5>
-                <p class="mbr-text">
-                    1234 Street Name
-                    <br>City, AA 99999
-                </p>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Contacts
-                </h5>
-                <p class="mbr-text">
-                    Email: support@mobirise.com
-                    <br>Phone: +1 (0) 000 0000 001
-                    <br>Fax: +1 (0) 000 0000 002
-                </p>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Links
-                </h5>
-                <p class="mbr-text">
-                    <a class="text-primary" href="https://mobirise.com/">Website builder</a>
-                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a>
-                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a>
-                </p>
-            </div>
+
         </div>
         <div class="footer-lower">
             <div class="media-container-row">
@@ -157,44 +128,10 @@
                 </div>
             </div>
             <div class="media-container-row mbr-white">
-                <div class="col-sm-6 copyright">
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        © Copyright 2017 Mobirise - All Rights Reserved
+                <div class="col-sm-12 copyright">
+                    <p class="mbr-text mbr-fonts-style display-7 text-center">
+                        © Copyright 2020
                     </p>
-                </div>
-                <div class="col-md-6">
-                    <div class="social-list align-right">
-                        <div class="soc-item">
-                            <a href="https://twitter.com/mobirise" target="_blank">
-                                <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
-                                <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://www.youtube.com/c/mobirise" target="_blank">
-                                <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://instagram.com/mobirise" target="_blank">
-                                <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://plus.google.com/u/0/+Mobirise" target="_blank">
-                                <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://www.behance.net/Mobirise" target="_blank">
-                                <span class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

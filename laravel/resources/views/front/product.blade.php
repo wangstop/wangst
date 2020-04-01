@@ -5,7 +5,7 @@
 <style>
 
 .padding-top{
-        padding-top: 100px
+        padding-top: 200px
     }
 
 </style>
@@ -22,7 +22,7 @@
 
     <!--Container-->
     <div class="container">
-        <div class="row justify-content-center padding-top">
+        <div class="row justify-content-center padding-top" >
 
 
 

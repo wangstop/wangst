@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app .scene {
+  width: 100%;
+  height: 50vh;
+}
+
+.app .scene .people {
+  right: 0px;
+  top: 0px;
+}
+/*# sourceMappingURL=style.css.map */

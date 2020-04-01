@@ -16,7 +16,7 @@ class CreateOrders extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             // order_no訂單編號
-            $table->string('order_no');
+            $table->string('order_no')->nullable();
             $table->integer('user_id')->nullable();
             $table->string('Recipient_name');
             $table->string('Recipient_phone');

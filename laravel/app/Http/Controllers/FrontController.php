@@ -214,7 +214,7 @@ class FrontController extends Controller
                  array_push($items, $item);
 
             if($total_price>1000){
-                    $total_price_item = [
+                $total_price_item = [
                 'name' => "運費",
                 'qty' => 1,
                 'price' => 120,
@@ -236,7 +236,7 @@ class FrontController extends Controller
 
             }
         }
-        // dd($items);
+        dd($items);
         // 建立訂單編號
         // Carbon::now()為時間模組套件
         // format('內容')可以讓內容改為各式各樣的格式 下面Ymd是數字的格式
@@ -244,7 +244,7 @@ class FrontController extends Controller
 
         // 訂單編號 = apk+時間模組套件+數字+流水號;
         $order->order_no='apk'.Carbon::now()->format('Ymd').$order->id;
-        dd($order);
+        // dd($order);
         $order->save();
 
          //第三方支付
@@ -288,7 +288,7 @@ class FrontController extends Controller
     public function contactUs_store(Request $request){
 
         $contact_data = $request->all();
-        dd($contact_data);
+        // dd($contact_data);
 
         $contact = contactUs::create($contact_data);
 

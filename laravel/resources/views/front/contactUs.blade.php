@@ -2,7 +2,7 @@
 @extends('layouts/nav')
 
 @section('content')
-    <section class="mbr-section form1 cid-rTmEIpi0cJ" id="form1-3" style="padding-top:100px">
+    <section class="mbr-section form1 cid-rTmEIpi0cJ" id="form1-3" style="padding-top:200px">
 
     <div class="container">
         <div class="row justify-content-center">

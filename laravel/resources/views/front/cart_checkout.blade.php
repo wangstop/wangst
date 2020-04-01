@@ -123,7 +123,7 @@
 
 
 
-    <div class="container">
+    <div class="container"style="padding-top:200px;">
 
         <div class="media-container-row ">
             <div class="Cart">
@@ -135,7 +135,7 @@
                   <div class="Cart__headerGrid">小計</div>
                 </div>
 
-                        @foreach ($items as $item)
+                @foreach ($items as $item)
                         @csrf
                     <div class="Cart__product" data-itemid="{{$item->id}}">
                         <div class="Cart__productGrid Cart__productImg"></div>

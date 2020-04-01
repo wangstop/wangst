@@ -20,7 +20,7 @@
 
     <!--Container-->
     <div class="container">
-        <div class="row justify-content-center padding-top" >
+        <div class="row justify-content-center padding-top" style="padding-top:150px">
                 @foreach ($product_data as $item)
 
             <div class="card col-12 col-md-6 p-3 col-lg-4  ">
