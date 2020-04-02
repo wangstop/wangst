@@ -83,8 +83,7 @@ li {
 }
 
 .banner {
-  width: 100%;
-  height: 80vh;
+  overflow: hidden;
 }
 
 .banner img {
