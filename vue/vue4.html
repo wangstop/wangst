@@ -21,17 +21,22 @@
                     <img :src="src" alt="">
                     <h1 class="bg-dark text-white">{{title}}</h1>
                     <div class="description d-flex text-white justify-content-center">
-                        <a class="btn btn-danger" href="">- </a>
+                        <!-- 如果index!=0 顯示 -->
+                        <button v-if="index > 0" class="btn btn-danger" @click="changeIndex(-1)">-</button>
+
                         <div class="four bg-dark">
-                            <span>4</span>
+                            <span>{{index+1}}</span>
                         </div>
                         <div class="menu bg-warning">
-                            <span>開胃餐點</span>
+                            <span>{{today.type}}</span>
                         </div>
                         <div class="el">
-                            <span>古早味事件頓畫面綁定</span>
+                            <a :href="today.link">
+                            <span>{{today.title}}</span>
+                            </a>
                         </div>
-                        <a class="btn btn-danger" href="">+</a>
+                        <!-- 如果index < total-1 顯示-->
+                        <button v-if="index < total-1" class="btn btn-danger" @click="changeIndex(1)">+</button>
                     </div>
                 </div>
             </div>
@@ -75,6 +80,21 @@ let data = {
 let vm = new Vue({
         el:'#app',
         data: data,
+        computed:{
+            today(){
+                return this.menu[this.index]
+            },
+            total(){
+                return this.menu.length 
+            },
+        },
+        methods: {
+            changeIndex(change){
+                // this指整個vm
+                // console.log(this.index);
+                this.index = (this.index + change + this.total) % this.total;
+            }
+        }
     })
 
 </script>

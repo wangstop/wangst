@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style2.css">
+
+</head>
+
+<body>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+
+
+    <div class="all">
+        <div id="app">
+            <div class="content">
+                <div class="box1">
+                    <span>{{name}},<br />
+                        {{sex}}性,<br />
+                        年齡{{age}},<br />
+                        {{favor.length ? '喜歡':''}}{{favor.join('.')}},{{member ? '已':'未'}}成為頻道會員</span>
+                </div>
+                <div class="box2">
+                    <table>
+                        <tr>
+                            <td>
+                                姓名:
+                            </td>
+                            <td>
+                                <input type="text" v-model="name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                性別:
+                            </td>
+                            <td>
+                                <input type="radio" value="女" v-model="sex"/>女
+                                <input type="radio" value="男" v-model="sex" />男
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                年齡:
+                            </td>
+                            <td>
+                                <select v-model="age">
+                                    <option>
+                                        20歲以下
+                                    </option>
+                                    <option >
+                                        20~30歲
+                                    </option>
+                                    <option> 
+                                        30~40歲
+                                    </option>
+                                    <option>
+                                        40歲以上
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                興趣:
+                            </td>
+                            <td>
+                                <input type="checkbox" value="打扣" v-model="favor"/>打扣
+                                <input type="checkbox" value="電動" v-model="favor"/>電動
+                                <input type="checkbox" value="遊日本"v-model="favor"/>遊日本
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                會員:
+                            </td>
+                            <td>
+                                <input type="checkbox" value="加入" v-model="member"/>加入
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script src="./JS/day.js"></script>
+
+
+</body>
+
+</html>

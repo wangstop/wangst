@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1ab61a !important;
+}
+
+.all {
+  width: 100%;
+  height: 100vh;
+}
+
+.all #app {
+  width: 50%;
+  height: 50vh;
+}
+/*# sourceMappingURL=style7v2.css.map */
